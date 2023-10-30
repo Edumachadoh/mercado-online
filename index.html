@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mercado Online</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Sans&family=Martian+Mono&family=Oswald&family=Poppins:wght@400;500;600;800&family=Raleway&family=Young+Serif&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans&family=Oswald&family=Poppins:wght@400;500;600;800&family=Raleway:ital,wght@0,400;1,100&family=Roboto:ital,wght@0,300;1,300&family=Young+Serif&display=swap" rel="stylesheet">
+</head>
+<body>
+    <nav>
+        <div class="logo"></div>
+        <div class="menu">
+            <ul>
+                <li><a onclick="openPage('todos', 'container')">Tela inicial</a></li>
+                <li><a onclick="openPage('sobre', 'container')">Sobre</a></li>
+                <li><a onclick="openPage('contato', 'container')">Contato</a></li>
+                <!-- <li><a href="">Nosso time</a></li>
+                <li><a href="">Ofertas do dia</a></li> -->
+            </ul>
+        </div>
+
+        <div class="total-compra">
+            <span>Total: R$</span>
+            <span id="total">0</span>
+        </div>
+        <div class="carrinho">
+            <div class="logo-carrinho">
+                
+                <span id="num-carrinho">0</span>
+                <div class="logo-carrinho-foto">
+                    
+                </div>
+            </div>
+            
+           <div class="carrinho-zerar-carrinho">
+                 <p>Carrinho</p>
+                 <input type="button" value="Zerar carrinho" onclick="zerarCarrinho()">
+           </div>
+            
+        </div>
+
+        <section id="nav-list" class="nav-list">
+            <span onclick="remove()" id="botao-nav">X</span>
+            <h2 id="titulo-nav">Título</h2>
+            <div id="conteudo-nav"> 
+                
+                <div id="fototitulo">
+                    <section id="foto-nav"></section>
+                    <div id="descricaoqtd">
+                        <p id="descricao-nav">Descrição</p>
+                        <section id="precoNav"> Legenda</section>
+                    <section class="qtd"> <select name="qtd" id="qtd" aria-valuemin="1" aria-valuemax="15">
+                        <option value="0">qtd</option>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>    
+                        <option value="5">5</option>
+                    </select></section>
+                    </div>
+                </div>
+                <h3>Forma de Pagamento</h3>
+                <ul>
+                    <li id="pix">Pix &#8595;</li>
+                    <div id="fotopix"></div>
+                    <li id="cartao">Cartão &#8595;</li>
+                    <div id="cartaonumero">
+                        <div class="labelinput">
+                            <label for="">Numero do cartao</label>
+                            <input type="number" placeholder="#### #### #### ####" minlength="16">
+                        </div>
+                        <div class="labelinput">
+                            <label for="">Nome do cartão</label>
+                            <input type="text" placeholder="Nome">
+                        </div>
+                        <div class="labelinput">
+                            <label for="">Cód. de segurança</label>
+                            <input type="number" placeholder="CVV">
+                        </div>
+                        
+                        <div class="labelinput">
+                            <label for="">Data de expiração</label>
+                            <div id="diaMesCartao">
+                                <select name="" id="">
+                                    <option value="1">01</option>
+                                </select>
+                                <select name="" id="">
+                                    <option value="23">23</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div id="enviarCartao">
+                            <input type="submit" value="Enviar">
+                        </div>
+                    </div>
+                    <li id="boleto">Boleto &#8595;</li>
+                    <div id="boletofoto">
+                    </div>
+                </ul>
+            </div>  
+
+
+        </section>
+        
+    </nav>
+    <div class="nav-bar">
+        <div class="nav-bar-menu">
+            <ul>
+                <li><a onclick="openPage('todos', 'container')">Todos</a></li>
+                <li><a onclick="openPage('frutas', 'container')">Frutas</a></li>
+                <li><a onclick="openPage('bebidas', 'container')">Bebidas</a></li>
+                <li><a onclick="openPage('limpeza', 'container')">Limpeza</a></li>
+                <li><a onclick="openPage('outros', 'container')">Outros</a></li>
+            </ul>
+        </div>
+    </div>
+    <header>
+        <div class="promocao">
+            
+        </div>
+        <div class="slide-show">
+            <div class="container-slide">
+                <div class="action-buttom" id="previous">&laquo </div>
+                <div class="container-items" id="container-items"></div>
+                <div class="action-buttom" id="next">&raquo</div>
+            
+                <div class="indicators" id="indicators"></div>
+            </div>
+        </div>
+    </header>
+    <div id="container" class="container">
+        
+        <main>
+            <div class="itens">
+                <img class="foto" src="../img/brocolis1.jfif" alt="brocolis supermercado">
+                <span class="titulo">Brócolis</span>
+                <span class="descricao">450g</span>
+                <div class="precos">
+                    <span>R$</span><span class="preco">5.49</span><span>/u</span>
+                </div>
+                <section>Á vista ou <span class="parcelas">aaa</span></section>
+                <div class="botao" >
+                    <input type="submit" value="Adicionar ao carrinho" class="botao-carrinho botao-carrinho1" onclick="calcular('0') "></input>
+                    <input type="submit" value="Comprar agora" class="botao-carrinho comprar-agora" onclick="Animação('0')"></input>
+                </div>  
+            </div>
+            <div class="itens">
+                <img class="foto" src="../img/coca.jpg" alt="coca cola lata">
+                <span class="titulo">Coca-cola</span>
+                <span class="descricao">350ml</span>
+                <div class="precos">
+                    <span>R$</span><span class="preco">3.99</span><span>/u</span>
+                </div>
+                <section>Á vista ou <span class="parcelas">aaa</span></section>
+                <div class="botao" >
+                    <input type="submit" value="Adicionar ao carrinho" class="botao-carrinho botao-carrinho1" onclick="calcular('1') "></input>
+                    <input type="submit" value="Comprar agora" class="botao-carrinho comprar-agora" onclick="Animação('1')"></input>
+                </div>  
+            </div>
+            <div class="itens">
+                <img class="foto" src="../img/abacate.jpg" alt="abacate">
+                <span class="titulo">Abacate</span>
+                <span class="descricao">300g</span>
+                <div class="precos">
+                    <span>R$</span><span class="preco">12.99</span><span>/kg</span>
+                </div>
+                <section>Á vista ou <span class="parcelas">aaa</span></section>
+                <div class="botao" >
+                    <input type="submit" value="Adicionar ao carrinho" class="botao-carrinho botao-carrinho1" onclick="calcular('2') "></input>
+                    <input type="submit" value="Comprar agora" class="botao-carrinho comprar-agora" onclick="Animação('2')"></input>
+                </div>  
+            </div>
+
+            <div class="itens">
+                <img class="foto" src="../img/bota.jpg" alt="bota cowboy couro">
+                <span class="titulo">Bota Cowboy</span>
+                <span class="descricao">Couro</span>
+                <div class="precos">
+                    <span>R$</span><span class="preco">199.00</span><span>/u</span>
+                </div>
+                <section>Á vista ou <span class="parcelas">aaa</span></section>
+                <div class="botao" >
+                    <input type="submit" value="Adicionar ao carrinho" class="botao-carrinho botao-carrinho1" onclick="calcular('3') "></input>
+                    <input type="submit" value="Comprar agora" class="botao-carrinho comprar-agora" onclick="Animação('3')"></input>
+                </div>  
+            </div>
+
+            <div class="itens">
+                <img class="foto" src="../img/tomate.jpg" alt="tomate">
+                <span class="titulo">Tomate</span>
+                <span class="descricao">50g</span>
+                <div class="precos">
+                    <span>R$</span><span class="preco">6.69</span><span>/kg</span>
+                </div>
+                <section>Á vista ou <span class="parcelas">aaa</span></section>
+                <div class="botao" >
+                    <input type="submit" value="Adicionar ao carrinho" class="botao-carrinho botao-carrinho1" onclick="calcular('4') "></input>
+                    <input type="submit" value="Comprar agora" class="botao-carrinho comprar-agora" onclick="Animação('4')"></input>
+                </div>  
+            </div>
+
+            <div class="itens">
+                <img class="foto" src="../img/carrinhobebe.jpg" alt="Carrinho de bebê">
+                <span class="titulo">Carrinho de bebê</span>
+                <span class="descricao">Até 15kgs</span>
+                <div class="precos">
+                    <span>R$</span><span class="preco">655.00</span><span>/u</span>
+                </div>
+                <section>Á vista ou <span class="parcelas">aaa</span></section>
+                <div class="botao" >
+                    <input type="submit" value="Adicionar ao carrinho" class="botao-carrinho botao-carrinho1" onclick="calcular('5') "></input>
+                    <input type="submit" value="Comprar agora" class="botao-carrinho comprar-agora" onclick="Animação('5')"></input>
+                </div>  
+            </div>
+
+            <div class="itens">
+                <img class="foto" src="../img/melancia.jpg" alt="melancia">
+                <span class="titulo">Melancia</span>
+                <span class="descricao">800g</span>
+                <div class="precos">
+                    <span>R$</span><span class="preco">15.99</span><span>/kg</span>
+                </div>
+                <section>Á vista ou <span class="parcelas">aaa</span></section>
+                <div class="botao" >
+                    <input type="submit" value="Adicionar ao carrinho" class="botao-carrinho botao-carrinho1" onclick="calcular('6') "></input>
+                    <input type="submit" value="Comprar agora" class="botao-carrinho comprar-agora" onclick="Animação('6')"></input>
+                </div>  
+            </div>
+
+            <div class="itens">
+                <img class="foto" src="../img/sabao.jpg" alt="sabonete">
+                <span class="titulo">Sabonete</span>
+                <span class="descricao">Sabor morango</span>
+                <div class="precos">
+                    <span>R$</span><span class="preco">3.99</span><span>/u</span>
+                </div>
+                <section>Á vista ou <span class="parcelas">aaa</span></section>
+                <div class="botao" >
+                    <input type="submit" value="Adicionar ao carrinho" class="botao-carrinho botao-carrinho1" onclick="calcular('7') "></input>
+                    <input type="submit" value="Comprar agora" class="botao-carrinho comprar-agora" onclick="Animação('7')"></input>
+                </div>  
+            </div>
+
+            <div class="itens">
+                <img class="foto" src="../img/laranja.jpg" alt="laranja">
+                <span class="titulo">Laranja</span>
+                <span class="descricao">Lima</span>
+                <div class="precos">
+                    <span>R$</span><span class="preco">6.99</span><span>/kg</span>
+                </div>
+                <section>Á vista ou <span class="parcelas">aaa</span></section>
+                <div class="botao" >
+                    <input type="submit" value="Adicionar ao carrinho" class="botao-carrinho botao-carrinho1" onclick="calcular('8') "></input>
+                    <input type="submit" value="Comprar agora" class="botao-carrinho comprar-agora" onclick="Animação('8')"></input>
+                </div>  
+            </div>
+
+            <div class="itens">
+                <img class="foto" src="../img/limpeza.jpg" alt="limpador de vidro">
+                <span class="titulo">Limpa Vidro</span>
+                <span class="descricao">200ml</span>
+                <div class="precos">
+                    <span>R$</span><span class="preco">14.99</span><span>/u</span>
+                </div>
+                <section>Á vista ou <span class="parcelas">aaa</span></section>
+                <div class="botao" >
+                    <input type="submit" value="Adicionar ao carrinho" class="botao-carrinho botao-carrinho1" onclick="calcular('9') "></input>
+                    <input type="submit" value="Comprar agora" class="botao-carrinho comprar-agora" onclick="Animação('9')"></input>
+                </div>  
+            </div>
+            
+        </main>
+    </div>
+    <footer>
+        <h3>Obrigado pela preferência</h3>
+        <h2>Todos os direitos reservados ©</h2>
+    </footer>
+
+    <script src="./javascript/script.js"></script>
+</body>
+</html> 
